@@ -1,5 +1,3 @@
-.nickCageIcon {
-    width: max(35px, 4%);
-    padding: 0 3px 0 0
+.text-none{
+    text-decoration: none;
 }
-

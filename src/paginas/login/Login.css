@@ -1,0 +1,25 @@
+.imagemLogin{
+    background-image: url(https://cdn.colab55.com/images/55001/studio/40895/art/231107/stickers.png);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.linkLogin {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #824e8d;
+}
+
+.linkLogin:hover {
+    color: #442e3c;
+}
+
+.linkNavbar{
+    font-weight: bold;
+    color: #824e8d;
+}
+
+.linkLNavbar:hover {
+    color: #442e3c;
+}

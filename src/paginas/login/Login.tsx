@@ -48,7 +48,7 @@ function Login() {
                     <Box display="flex" justifyContent="center" >
                         <Grid item xs={8}>
                             <form onSubmit={onSubmit}>
-                                <Typography variant="h3" align="center" gutterBottom>Entrar</Typography>
+                                <Typography variant="h3" align="center" gutterBottom style={{ color: "#ae7db0", fontWeight: "bold" }}>Entrar</Typography>
                                 <TextField 
                                 variant="outlined" 
                                 name= 'usuario'
@@ -68,7 +68,7 @@ function Login() {
                                 fullWidth />
                                 <Box marginY={2}>
                                     <Link to="/home">
-                                        <Button type="submit" variant="contained" color="primary" fullWidth>Logar</Button>
+                                        <Button type="submit" variant="contained" color="inherit" fullWidth style={{ borderColor: "white", backgroundColor: "#824e8d", color: "white" }}>Logar</Button>
                                     </Link>
                                 </Box>
                             </form>

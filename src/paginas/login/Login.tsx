@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, useEffect } from 'react'
 import './Login.css'
 import { Grid, TextField, Button } from '@material-ui/core';
 import { Typography, Box } from '@mui/material';
@@ -8,10 +8,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import UsuarioLogin from "../../models/UsuarioLogin";
 import { login } from '../../service/Service';
+import useLocalStorage from 'react-use-localstorage';
 
 function Login() {
 
     const history = useNavigate()
+
+    const [token, setToken] = useLocalStorage('token')
 
     const [userLogin, setUserLogin] = useState<UsuarioLogin>({
         id: 0,
@@ -29,17 +32,24 @@ function Login() {
         })
     }
 
-    async function onSubmit(event: ChangeEvent<HTMLFormElement>){
+    async function onSubmit(event: ChangeEvent<HTMLFormElement>) {
         event.preventDefault()
         try {
             await login('/usuarios/logar', userLogin, setUserLogin)
             alert('Usuário logado com sucesso')
             history('/home')
-        } catch(error){
+        } catch (error) {
             console.log(error);
             alert('Usuário ou senha inválidos')
         }
     }
+
+    useEffect(() => {
+        if (token !== '') {
+            history('/home')
+        }
+    }, [token])
+
 
     return (
         <>
@@ -49,23 +59,23 @@ function Login() {
                         <Grid item xs={8}>
                             <form onSubmit={onSubmit}>
                                 <Typography variant="h3" align="center" gutterBottom style={{ color: "#ae7db0", fontWeight: "bold" }}>Entrar</Typography>
-                                <TextField 
-                                variant="outlined" 
-                                name= 'usuario'
-                                value={userLogin.usuario}
-                                onChange={(event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => updateModel(event)}
-                                label="Usuário" 
-                                margin="normal" 
-                                fullWidth />
-                                <TextField 
-                                type="password" 
-                                name= "senha"
-                                value={userLogin.senha}
-                                onChange={(event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => updateModel(event)}
-                                variant="outlined" 
-                                label="Senha" 
-                                margin="normal" 
-                                fullWidth />
+                                <TextField
+                                    variant="outlined"
+                                    name='usuario'
+                                    value={userLogin.usuario}
+                                    onChange={(event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => updateModel(event)}
+                                    label="Usuário"
+                                    margin="normal"
+                                    fullWidth />
+                                <TextField
+                                    type="password"
+                                    name="senha"
+                                    value={userLogin.senha}
+                                    onChange={(event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => updateModel(event)}
+                                    variant="outlined"
+                                    label="Senha"
+                                    margin="normal"
+                                    fullWidth />
                                 <Box marginY={2}>
                                     <Link to="/home">
                                         <Button type="submit" variant="contained" color="inherit" fullWidth style={{ borderColor: "white", backgroundColor: "#824e8d", color: "white" }}>Logar</Button>

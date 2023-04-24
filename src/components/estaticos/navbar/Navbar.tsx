@@ -16,19 +16,21 @@ function Navbar() {
 
                     <Box display="flex" justifyContent="start">
                         <Box mx={1} style={{ cursor: "pointer" }}>
-                            <Link to='/home' style={{color: "white"}}>
+                            <Link to='/home' style={{ color: "white" }}>
                                 <Typography variant="h6" color="inherit">
                                     Home
                                 </Typography>
                             </Link>
                         </Box>
                         <Box mx={1} style={{ cursor: "pointer" }}>
-                            <Typography variant="h6" color="inherit">
-                                Postagens
-                            </Typography>
+                            <Link to='/postagens' style={{ color: "white" }}>
+                                <Typography variant="h6" color="inherit">
+                                    Postagens
+                                </Typography>
+                                </Link>
                         </Box>
                         <Box mx={1} style={{ cursor: "pointer" }}>
-                            <Link to='/temas'style={{color: "white"}}>
+                            <Link to='/temas' style={{ color: "white" }}>
                                 <Typography variant="h6" color="inherit">
                                     Temas
                                 </Typography>
@@ -39,8 +41,8 @@ function Navbar() {
                                 Cadastrar tema
                             </Typography>
                         </Box>
-                        <Box mx={1} style={{ cursor: "pointer"}}>
-                            <Link to='/login' style={{color: "white"}}>
+                        <Box mx={1} style={{ cursor: "pointer" }}>
+                            <Link to='/login' style={{ color: "white" }}>
                                 <Typography variant="h6" color="inherit">
                                     Logout
                                 </Typography>

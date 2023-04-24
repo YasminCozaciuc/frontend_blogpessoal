@@ -11,6 +11,7 @@ import CadastroUsuario from './paginas/cadastroUsuario/CadatroUsuario';
 import ListaTemas from './paginas/temas/listaTemas/listaTemas';
 import ListaPostagens from './components/postagens/listaPostagem/ListaPostagem';
 import CadastroTemas from './components/temas/cadastroTemas/CadastroTemas';
+import ListaPostagem from './components/postagens/listaPostagem/ListaPostagem';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/cadastrarUsuario" element={<CadastroUsuario />} />
         <Route path="/temas" element={<ListaTemas />} />
-        <Route path="/postagens" element={<ListaPostagens />} />
+        <Route path="/postagens" element={<ListaPostagem />} />
         <Route path="/cadastrarTema" element={<CadastroTemas />} />
       </Routes>
     </div>

@@ -4,7 +4,7 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@material-ui/lab/TabContext';
 import TabList from '@material-ui/lab/TabList';
 import TabPanel from '@material-ui/lab/TabPanel';
-import ListaPostagens from '../listaPostagens/ListaPostagens';
+import ListaPostagens from '../listaPostagem/ListaPostagem';
 
 function TabPostagens() {
     const [value, setValue] = React.useState('1');

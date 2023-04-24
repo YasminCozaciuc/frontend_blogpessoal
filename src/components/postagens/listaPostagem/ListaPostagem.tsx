@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import useLocalStorage from 'react-use-localstorage'
 import { getAll } from '/Users/yasmi/Documents/React/blogPessoal/src/service/Service'
 
-function ListaPostagens() {
+function ListaPostagem() {
 
     const history = useNavigate()
 
@@ -63,4 +63,4 @@ function ListaPostagens() {
     )
 }
 
-export default ListaPostagens
+export default ListaPostagem

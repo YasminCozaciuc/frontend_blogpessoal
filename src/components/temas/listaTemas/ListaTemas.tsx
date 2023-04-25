@@ -4,7 +4,7 @@ import { Card, CardContent, Typography, CardActions, Button } from '@mui/materia
 import { Tema } from '../../../models/Tema';
 import { getAll } from '../../../service/Service';
 import useLocalStorage from 'react-use-localstorage';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function ListaTemas() {
 
@@ -34,29 +34,42 @@ function ListaTemas() {
 
     return (
         <>
-            {temas.map((tema) => (
-                <Box m={4}>
-                    <Card>
-                        <CardContent>
+            {temas.length === 0 && (
+                <div className="loaderContainer">
+                    <span className="loader"></span>
+                </div>
+            )}
 
-                            <Typography color="text.secondary" gutterBottom>
+            <div className="listaTema">
+                {temas.map((tema) => (
+                    // <Grid item marginY={2} mx={4}>
+                    <Card variant="outlined" className="cardTema">
+                        <CardContent>
+                            <Typography color="textSecondary" gutterBottom>
                                 Tema:
                             </Typography>
-                            <Typography variant="h5" component="div">
+                            <Typography variant="h5" component="h2">
                                 {tema.descricao}
                             </Typography>
-
                         </CardContent>
                         <CardActions>
-                            <Button variant="contained" color="primary" size="small">Editar</Button>
-                            <Button variant="contained" color="secondary" size="small">Deletar</Button>
+                            <Link to={`/editarTema/${tema.id}`}>
+                                <Button color="primary" variant="contained" size="small">
+                                    Editar
+                                </Button>
+                            </Link>
+                            <Link to={`/deletarTema/${tema.id}`}>
+                                <Button color="error" variant="contained" size="small">
+                                    Deletar
+                                </Button>
+                            </Link>
                         </CardActions>
                     </Card>
-                </Box>
-            ))}
+                    // </Grid>
+                ))}
+            </div>
         </>
-
-    )
+    );
 }
 
 export default ListaTemas

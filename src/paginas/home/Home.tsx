@@ -3,6 +3,7 @@ import { Grid, Paper, Typography } from '@material-ui/core';
 import './Home.css'
 import { Box, Button } from '@mui/material';
 import TabPostagens from '../../components/postagens/tabPostagens/TabPostagens'
+import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
 
 function Home() {
     return (
@@ -15,6 +16,7 @@ function Home() {
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
+                            <ModalPostagem />
                         </Box>
                         <Button variant="outlined" style={{ borderColor: "white", backgroundColor: "#824e8d", color: "white" }}>Ver Postagens</Button>
                     </Box>
@@ -23,6 +25,7 @@ function Home() {
                     <img src="https://www.ojornalzinho.com.br/wp-content/uploads/2020/10/feminismo-moderno-mao-desenhada.jpg" alt="" width="600px" height="600px" />
                 </Grid>
                 <Grid xs={12} style={{ backgroundColor: "white" }}>
+                    <TabPostagens />
                 </Grid>
             </Grid>
         </>

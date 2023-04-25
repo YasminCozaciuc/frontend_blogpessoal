@@ -1,27 +1,32 @@
 import React from 'react'
-import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
+import AppBar from '@material-ui/core/AppBar';
+import Tab from '@material-ui/core/Tab';
 import TabContext from '@material-ui/lab/TabContext';
 import TabList from '@material-ui/lab/TabList';
 import TabPanel from '@material-ui/lab/TabPanel';
-import ListaPostagens from '../listaPostagem/ListaPostagem';
+import ListaPostagem from '../listaPostagem/ListaPostagem';
+import './TabPostagens.css'
 
 function TabPostagens() {
     const [value, setValue] = React.useState('1');
-    const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    const handleChange = (event: React.ChangeEvent<{}>, newValue: string) => {
         setValue(newValue);
-    }
+    };
 
     return (
         <TabContext value={value}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }} >
-                <TabList centered TabIndicatorProps={{ style: { display: "none" } }} onChange={handleChange} aria-label="lab API tabs example">
+            <AppBar position="static" className='barrinha'>
+                <TabList centered indicatorColor='primary' onChange={handleChange} aria-label="simple tabs example">
                     <Tab label="Postagens" value="1" />
-                    <Tab label="Sobre nós" value="2" />
+                    <Tab label="Sobre o projeto" value="2" />
                 </TabList>
-            </Box>
-            <TabPanel value="1"><ListaPostagens /></TabPanel>
-            <TabPanel value="2">Item Two</TabPanel>
+            </AppBar>
+            <TabPanel value="1">
+                <ListaPostagem />
+            </TabPanel>
+            <TabPanel value="2">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus similique nulla neque deserunt sed repudiandae ea accusantium, dicta nihil nisi nostrum ratione quod incidunt aspernatur delectus temporibus, sit, expedita recusandae.
+            </TabPanel>
         </TabContext>
     )
 }

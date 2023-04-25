@@ -12,12 +12,15 @@ import ListaTemas from './paginas/temas/listaTemas/listaTemas';
 import ListaPostagens from './components/postagens/listaPostagem/ListaPostagem';
 import CadastroTemas from './components/temas/cadastroTemas/CadastroTemas';
 import ListaPostagem from './components/postagens/listaPostagem/ListaPostagem';
+import store from './store/store';
+import {Provider} from 'react-redux'
 
 function App() {
   return (
-    <BrowserRouter>
+<Provider store={store}>
+<BrowserRouter>
     <Navbar />
-    <div>
+    <div style= {{minHeight: '85vh'}}>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
@@ -30,6 +33,7 @@ function App() {
     </div>
     <Footer />
   </BrowserRouter>
+</Provider>
   
   )
 }

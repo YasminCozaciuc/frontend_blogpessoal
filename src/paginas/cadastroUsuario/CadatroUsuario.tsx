@@ -62,6 +62,10 @@ function CadastroUsuario() {
     }
 
     useEffect(() => {
+        console.log('rodou')
+    }, [usuario.nome])
+
+    useEffect(() => {
         if(usuarioResult.id !== 0) {
             history("/login")
         }
